@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>My name</h1>
+    <h1 id="theta">What  I am doing</h1>
+    <h1 class="within-class" id="forward">Anything here</h1>
+    <h1>Whatsapp</h1>
+    <h1>Mr Lil Wayne</h1>
+
+    <button>Click me</button>
+
+    <form name="loginForm" onsubmit="return validateForm(event) ">
+        <label for="Name">Name:</label>
+        <input type="text" name="name" placeholder="example@example.com" />
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="***" />
+        <button type="submit">Login</button>
+        <button type="reset">cancel</button>
+      </form>
+    </body>
+
+</body>
+<script>
+    let firstH1Tag = document.querySelector('h1');
+    let theta = document.getElementById('theta');
+
+    let allH1Tags = document.querySelectorAll('h1');
+    console.log("all h1 tags: ", allH1Tags);
+    const colorArray = ['blue', 'yellow', 'brown', 'green', 'red', 'orange'];
+
+    function changeColor () {
+        const colorIndex = Math.floor(Math.random() * colorArray.length);
+        const coloring = colorArray[colorIndex];
+        theta.style.color = coloring;
+        theta.style.fontSize = '12px';
+    }
+
+    function changeColorMul (nodeElement) {
+        const colorIndex = Math.floor(Math.random() * colorArray.length);
+        const coloring = colorArray[colorIndex];
+        nodeElement.style.color = coloring;
+    }
+
+    setInterval(() => {
+        allH1Tags.forEach(h1Tag => {
+            changeColorMul(h1Tag);
+        })
+    }, 1000);
+
+    var testEl = document.getElementById('forward');
+    const testClass = testEl.getAttribute('id');
+    testEl.setAttribute('class', 'myclasss');
+    testEl.removeAttribute('class');
+    console.log("Name of the attribute: ", testClass);
+
+    var newElement = document.createElement('h1');
+    var newTextNode = document.createTextNode("Nigerian Police Force");
+
+    newElement.appendChild(newTextNode);
+
+    document.body.appendChild(newElement);
+
+    // JavaScript Events
+    const btn = document.querySelector('button');
+
+    function clickLog () {
+        console.log("Button Clicked");
+    }
+
+    btn.addEventListener("click", clickLog);
+
+    // setInterval(() => {
+    //     changeColor();
+    // }, 2000);
+
+    console.log(firstH1Tag)
+</script>
+
+<!-- function validateForm(e) {
+    e.preventDefault()
+    var name = document.loginForm.name.value
+    var password = document.loginForm.password.value
+   if (name.length==0)
+    return alert(name is required)
+   if (password.length<5)
+    return alert(password length should more than 5)
+   } -->
+
+
+<script>
+    const password = "GomycodE";
+    const name = "Ibrahim";
+
+
+    function validateForm (e) {
+        e.preventDefault();
+        var inputName = document.loginForm.name.value;
+        var inputPassword = document.loginForm.password.value;ff
+        
+        if (inputName.length == 0) {
+            return alert("How far bro! You no enter name?")
+        }
+
+        if (inputPassword.length <= 6) {
+            return alert("You password too short oo!");
+        }
+
+        if (inputName === name && inputPassword === password) {
+            return alert(User ${name} logged in successfully);
+        } else {
+            return alert("Invalid Credentials!! :(");
+        }
+    }
+</script>
+</html>f
